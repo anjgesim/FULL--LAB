@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2021 at 04:57 PM
+-- Generation Time: May 04, 2021 at 09:43 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -47,7 +47,8 @@ INSERT INTO `authentication` (`ID`, `Code`, `Created`, `Expired`) VALUES
 (6, 137793, '03:59:47.000000', '04:04:47.000000'),
 (7, 733254, '04:02:45.000000', '04:07:45.000000'),
 (8, 990571, '04:02:50.000000', '04:07:50.000000'),
-(9, 985427, '09:53:34.000000', '09:58:34.000000');
+(9, 985427, '09:53:34.000000', '09:58:34.000000'),
+(10, 330127, '02:16:15.000000', '02:21:15.000000');
 
 -- --------------------------------------------------------
 
@@ -63,6 +64,19 @@ CREATE TABLE `complete_log` (
   `request` text DEFAULT NULL,
   `logtime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `eventlog`
+--
+
+CREATE TABLE `eventlog` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -110,6 +124,20 @@ CREATE TABLE `password_reset_temp` (
   `expDate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `password_reset_temp`
+--
+
+INSERT INTO `password_reset_temp` (`email`, `key`, `expDate`) VALUES
+('angelagesim@yahoo.com', '768e78024aa8fdb9b8fe87be86f647452dd5820b28', '2021-05-05 07:25:35'),
+('angelagesim@yahoo.com', '768e78024aa8fdb9b8fe87be86f64745c38da0411e', '2021-05-05 07:25:58'),
+('angelagesim@yahoo.com', '768e78024aa8fdb9b8fe87be86f6474530bbed9965', '2021-05-05 07:26:18'),
+('angelagesim@yahoo.com', '768e78024aa8fdb9b8fe87be86f647457d5ca8e5e1', '2021-05-05 07:26:35'),
+('angelagesim@yahoo.com', '768e78024aa8fdb9b8fe87be86f647452de2080519', '2021-05-05 07:27:19'),
+('anjgesim@yahoo.com', '768e78024aa8fdb9b8fe87be86f647452d3b42d1ca', '2021-05-05 07:27:29'),
+('anjgesim@yahoo.com', '768e78024aa8fdb9b8fe87be86f64745a5e1666c6c', '2021-05-05 07:27:39'),
+('duterte@yahoo.com', '768e78024aa8fdb9b8fe87be86f64745a0bd209dcc', '2021-05-05 07:28:17');
+
 -- --------------------------------------------------------
 
 --
@@ -140,6 +168,12 @@ ALTER TABLE `authentication`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `eventlog`
+--
+ALTER TABLE `eventlog`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `password_reset`
 --
 ALTER TABLE `password_reset`
@@ -159,7 +193,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `authentication`
 --
 ALTER TABLE `authentication`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `eventlog`
+--
+ALTER TABLE `eventlog`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `password_reset`

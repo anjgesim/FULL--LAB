@@ -4,17 +4,22 @@ body{
 	color:white;
 	justify-content: center;
 	align-items: center;
-	height: 700px;
+	height: 800px;
 }
 *{
 	font-family: times new romans;
-
+}
+a{
+	color: white;
+	position: absolute;
+	margin-top: 50px;
+	margin-left: 250px;
 }
 form{
 	width :350px;
 	border: solid;
 	background: blue;
-	padding: 15px;
+	padding:50px;
 }
 h1{
 	text-align: center;
@@ -41,7 +46,7 @@ button:hover{
 #WW{
 	float: right;
 	background: #717176;
-	padding: 10px 40px;
+	padding: 5px 20px;
 	margin-right: 30px;
 }
 #qq{

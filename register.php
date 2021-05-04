@@ -81,7 +81,7 @@ if($uppercase || $lowercase || $number ||$specialChars|| strlen($uname)  >1) {
 
 </head>
 <body>
-	<form method="POST">
+	<form action="login.php" method="post">
 		<h1>Sign Up</h1>
 		<center><p id=qq><?php echo  $error;?> </p></center>
 		
@@ -102,7 +102,7 @@ if($uppercase || $lowercase || $number ||$specialChars|| strlen($uname)  >1) {
 		<br>
 
 		<input ID="WW" type="submit" value="Register" class="btn" name="submit">
-
+		 <a href="index.php">Go back to Login</a>
 	</form>
 
 </body>
